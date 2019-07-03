@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".fragments.RegisterFragment">
+
+    <TextView
+        android:id="@+id/register_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Register"
+        android:textColor="@color/Orange"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/register_edit_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/register_text"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext1"
+        android:hint="First name"
+        android:paddingHorizontal="20dp" />
+
+    <EditText
+        android:id="@+id/register_edit_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/register_edit_first_name"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext1"
+        android:hint="Last name"
+        android:paddingHorizontal="20dp" />
+
+    <EditText
+        android:id="@+id/register_edit_address"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/register_edit_last_name"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext1"
+        android:hint="Address"
+        android:paddingHorizontal="20dp" />
+
+    <EditText
+        android:id="@+id/register_edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/register_edit_address"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext1"
+        android:hint="Password"
+        android:paddingHorizontal="20dp" />
+
+    <EditText
+        android:id="@+id/register_edit_email"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/register_edit_password"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext1"
+        android:hint="Email"
+        android:paddingHorizontal="20dp" />
+
+    <EditText
+        android:id="@+id/register_edit_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/register_edit_email"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext1"
+        android:hint="Mobile"
+        android:paddingHorizontal="20dp" />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_edit_mobile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button1"
+        android:text="Register" />
+
+</RelativeLayout>
