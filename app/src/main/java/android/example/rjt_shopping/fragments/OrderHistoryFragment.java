@@ -1,15 +1,15 @@
 package android.example.rjt_shopping.fragments;
 
 
-import android.example.rjt_shopping.adapters.ProductListAdapter;
+import android.example.rjt_shopping.adapters.OrderHistoryAdapter;
 import android.example.rjt_shopping.app.Endpoint;
 import android.example.rjt_shopping.helpers.Session;
 import android.example.rjt_shopping.model.CategoryList;
-import android.example.rjt_shopping.model.Product;
+import android.example.rjt_shopping.model.OrderConfirm;
 import android.example.rjt_shopping.network.VolleySingleton;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,14 +32,14 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductListFragment extends Fragment implements ProductListAdapter.setGoToDetailPage {
+public class OrderHistoryFragment extends Fragment implements OrderHistoryAdapter.onClickListener {
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    ProductListAdapter adapter;
-    ArrayList<Product> mlist=new ArrayList<>();
-    Bundle detail_bundle;
+    OrderHistoryAdapter adapter;
+    ArrayList<OrderConfirm> mlist=new ArrayList<>();
 
-    public ProductListFragment() {
+    public OrderHistoryFragment() {
         // Required empty public constructor
     }
 
@@ -48,50 +48,53 @@ public class ProductListFragment extends Fragment implements ProductListAdapter.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_product_list, container, false);
-        recyclerView=view.findViewById(R.id.product_recycler_view);
-
-        connect();
-
-        layoutManager=new GridLayoutManager(getContext(),2);
-        adapter=new ProductListAdapter(getContext(),mlist);
-        adapter.setOnclicklistener(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
+        View view= inflater.inflate(R.layout.fragment_order_history, container, false);
+        init(view);
         return view;
     }
 
+    private void init(View view) {
+        recyclerView=view.findViewById(R.id.order_history_recycler_view);
+        layoutManager=new LinearLayoutManager(getContext());
+        adapter=new OrderHistoryAdapter(getContext(),mlist);
+        adapter.initOnClickListener(this);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+        connect();
+
+    }
+
     private void connect() {
-        Bundle bundle=getArguments();
-        String url= Endpoint.GetProductList(bundle.getString("CID"),bundle.getString("SCID"), Session.API_KEY,Session.USER_ID);
-        Log.i("MyTag","get product: "+url);
+        String url= Endpoint.getOrderHistory(Session.API_KEY,Session.USER_ID,Session.MOBILE);
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 GsonBuilder builder=new GsonBuilder();
                 Gson gson=builder.create();
                 CategoryList categoryList=gson.fromJson(response.toString(),CategoryList.class);
-                mlist=categoryList.getPlist();
-
+                mlist=categoryList.getOrderhistory();
                 adapter.setData(mlist);
+
+                for(int i=0;i<mlist.size();i++){
+                    Log.i("MyTagg",mlist.get(i).getOrderid());
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i("MyTag","Get Product error: "+error.getMessage());
+                Log.i("MyTag","Get History error "+error.getMessage());
             }
         });
         VolleySingleton.getInstance().addRequestQue(request);
     }
 
     @Override
-    public void goToDetailPage(View v,int position) {
-        Log.i("MyTag", "You get here");
-        DetailProductFragment detailProductFragment=new DetailProductFragment();
-        detail_bundle=new Bundle();
-        detail_bundle.putSerializable("DETAIL_PRODUCT",mlist.get(position));
-        detailProductFragment.setArguments(detail_bundle);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.product_fragment_container,detailProductFragment).addToBackStack(null).commit();
+    public void setOnClickListner(View v, int position) {
+        Bundle bundle=new Bundle();
+        bundle.putString("ORDER_ID",mlist.get(position).getOrderid());
+        ShippingTrackFragment shippingTrackFragment=new ShippingTrackFragment();
+        shippingTrackFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.history_fragment_container,shippingTrackFragment).addToBackStack(null).commit();
     }
 }

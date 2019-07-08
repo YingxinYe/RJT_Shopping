@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".fragments.PayMoneyFragment">
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:id="@+id/address_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method:"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/address_pay_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_text1"
+        android:hint="Card Holder Name" />
+
+    <EditText
+        android:id="@+id/address_pay_card_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_name"
+        android:hint="Card Number" />
+
+    <EditText
+        android:id="@+id/address_pay_exp_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_card_number"
+        android:hint="Expiration Date" />
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:layout_marginTop="30dp"
+        android:id="@+id/address_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address_pay_exp_date"
+        android:text="Billing Address"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/address_pay_billing_street_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_text2"
+        android:hint="Billing Street address or P.O.Box" />
+
+    <EditText
+        android:id="@+id/address_pay_billing_apt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_billing_street_address"
+        android:hint="Apt, Suite, Unit, Building (optional)" />
+
+    <EditText
+        android:id="@+id/address_pay_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_billing_apt"
+        android:hint="City" />
+
+    <EditText
+        android:id="@+id/address_pay_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_city"
+        android:hint="State/Province/Region" />
+
+    <EditText
+        android:id="@+id/address_pay_ZIP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_state"
+        android:hint="ZIP" />
+
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/button1"
+        android:id="@+id/address_pay_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address_pay_ZIP"
+        android:layout_centerHorizontal="true"
+        android:text="Continue to review order" />
+
+
+    <View
+        android:layout_marginTop="5dp"
+        android:id="@+id/address_pay_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/address_pay_button"
+        android:background="@color/light_grey" />
+
+    <TextView
+        android:id="@+id/address_pay_cancel_and_continue_shopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_pay_view"
+        android:layout_centerHorizontal="true"
+        android:text="Cancel and continue shopping" />
+
+</RelativeLayout>

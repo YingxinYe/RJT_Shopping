@@ -53,6 +53,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
         return mlist.size();
     }
 
+    public void setData(ArrayList<Category> mlist) {
+        this.mlist=mlist;
+        notifyDataSetChanged();
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView title;

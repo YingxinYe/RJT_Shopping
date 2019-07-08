@@ -16,6 +16,10 @@
     <color name="peach_pink">#F46BAE</color>
     <color name="white">#FFF</color>
     <color name="jellyyellow">#FDF6C7</color>
+    <color name="light_grey">#C2BDBD</color>
+    <color name="red">#DD0404</color>
+    <color name="tiffany">#82CAC4</color>
+
 
 
 </resources>

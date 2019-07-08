@@ -63,6 +63,7 @@ public class ProductListActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.menu_order_history:
+                startActivity(new Intent(this,OrderHistoryActivity.class));
                 break;
             case R.id.menu_search:
                 break;
@@ -70,6 +71,7 @@ public class ProductListActivity extends AppCompatActivity {
                 startActivity(new Intent(ProductListActivity.this,ProfileAcitivity.class));
                 break;
             case R.id.menu_cart:
+                startActivity(new Intent(this, CartActivity.class));
                 break;
         }return true;
     }

@@ -7,6 +7,7 @@ import android.example.rjt_shopping.R;
 import android.example.rjt_shopping.adapters.CategoryAdapter;
 import android.example.rjt_shopping.adapters.ViewPagerAdapter;
 import android.example.rjt_shopping.app.Endpoint;
+import android.example.rjt_shopping.fragments.CartFragment;
 import android.example.rjt_shopping.helpers.Session;
 import android.example.rjt_shopping.model.Category;
 import android.example.rjt_shopping.model.CategoryList;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPagerAdapter viewPagerAdapter;
     public static ArrayList<Category> mlist;
     SharedPreferences sharedPreferences;
+    ArrayList<String> imageurl;
     Timer timer;
     int current_position = 0;
 
@@ -66,8 +68,18 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabDots);
 
         mlist = new ArrayList<>();
+        imageurl = new ArrayList<>();
 
         connect();
+
+        recyclerView = findViewById(R.id.category_recycler_view);
+        layoutManager = new LinearLayoutManager(MainActivity.this);
+        adapter = new CategoryAdapter(MainActivity.this, mlist);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
+
+
     }
 
     private void setToolbar() {
@@ -91,23 +103,22 @@ public class MainActivity extends AppCompatActivity {
                 CategoryList categoryList=gson.fromJson(response.toString(),CategoryList.class);
 
                 mlist=categoryList.getMlist();
+                adapter.setData(mlist);
 
-                ArrayList<String> imageurl = new ArrayList<>();
                 for(int i=0;i<mlist.size();i++){
                     imageurl.add(mlist.get(i).getCimagerl());
                 }
 
-                recyclerView = findViewById(R.id.category_recycler_view);
-                layoutManager = new LinearLayoutManager(MainActivity.this);
-                adapter = new CategoryAdapter(MainActivity.this, mlist);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(adapter);
+//                recyclerView = findViewById(R.id.category_recycler_view);
+//                layoutManager = new LinearLayoutManager(MainActivity.this);
+//                adapter = new CategoryAdapter(MainActivity.this, mlist);
+//                recyclerView.setLayoutManager(layoutManager);
+//                recyclerView.setAdapter(adapter);
 
                 viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
                 for (int i = 0; i < mlist.size(); i++) {
                     viewPagerAdapter.addFragment(mlist.get(i).getCimagerl());
                 }
-
                 viewPager.setAdapter(viewPagerAdapter);
                 tabLayout.setupWithViewPager(viewPager);
 
@@ -155,10 +166,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_order_history:
+                startActivity(new Intent(this,OrderHistoryActivity.class));
                 break;
             case R.id.menu_search:
                 break;
             case R.id.menu_cart:
+                startActivity(new Intent(this, CartActivity.class));
                 break;
             case R.id.menu_profile:
                 startActivity(new Intent(this, ProfileAcitivity.class));

@@ -53,6 +53,11 @@ public class SubCategoryAdapter extends RecyclerView.Adapter<SubCategoryAdapter.
         return mlist.size();
     }
 
+    public void setData(ArrayList<SubCategory> mlist) {
+        this.mlist=mlist;
+        notifyDataSetChanged();
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView title;
@@ -66,6 +71,7 @@ public class SubCategoryAdapter extends RecyclerView.Adapter<SubCategoryAdapter.
             image = itemView.findViewById(R.id.subcategory_image);
             title.setOnClickListener(this);
             image.setOnClickListener(this);
+            description.setOnClickListener(this);
         }
 
         @Override

@@ -50,9 +50,18 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return mlist.size();
     }
 
-    public interface setGoToDetailPage{
-        void goToDetailPage(View v);
+    public void setData(ArrayList<Product> mlist) {
+        this.mlist=mlist;
+        notifyDataSetChanged();
     }
+
+    public interface setGoToDetailPage{
+        void goToDetailPage(View v,int position);
+    }
+
+    public void setOnclicklistener(setGoToDetailPage a){
+        setgo=a;
+    };
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView product_image;
@@ -71,7 +80,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @Override
         public void onClick(View v) {
             //setgo=(setGoToDetailPage)context.getApplicationContext();
-            setgo.goToDetailPage(v);
+            setgo.goToDetailPage(v,getAdapterPosition());
         }
     }
 }

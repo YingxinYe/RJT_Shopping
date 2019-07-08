@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".fragments.PayDoneFragment">
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:id="@+id/order_done_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank you"
+        android:textSize="26dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textColor="@android:color/black"
+
+        android:id="@+id/order_done_text_order_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/order_done_text_name"
+        android:layout_marginTop="10dp"
+        android:text="order number" />
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/order_done_image"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_below="@+id/order_done_text_order_number"
+        android:src="@drawable/thankyouorder" />
+
+    <Button
+        android:paddingHorizontal="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@color/peach_pink"
+        android:id="@+id/order_done_back_to_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/order_done_image"
+        android:layout_centerHorizontal="true"
+        android:text="Continue Shopping" />
+
+</RelativeLayout>

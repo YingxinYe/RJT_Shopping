@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.OrderHistoryActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/order_history_tool_bar"/>
+
+    <FrameLayout
+        android:background="@color/jellyyellow"
+        android:id="@+id/history_fragment_container"
+        android:layout_below="@id/order_history_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</RelativeLayout>

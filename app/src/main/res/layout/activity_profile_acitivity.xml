@@ -12,6 +12,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/profile_info_group"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/purpleblue">
@@ -31,11 +32,39 @@
             android:layout_below="@+id/profile_icon"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:textAlignment="center"
             android:paddingHorizontal="20dp"
-            android:textColor="@color/white" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
     </RelativeLayout>
 
+    <Button
+    android:id="@+id/profile_check_order"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/profile_info_group"
+    android:layout_centerHorizontal="true"
+    android:layout_marginHorizontal="30dp"
+    android:layout_marginTop="30dp"
+    android:background="@color/blue_berry"
+    android:text="My Order"
+    android:textColor="@color/white"
+    android:textSize="20dp"
+    android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/profile_change_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_check_order"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/blue_berry"
+        android:text="Change Profile"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/profile_button"
@@ -44,5 +73,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:text="Log out" />
+        android:background="@color/blue_berry"
+        android:text="Log out"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 </RelativeLayout>

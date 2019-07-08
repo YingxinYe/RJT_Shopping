@@ -57,6 +57,11 @@ public class SubCategoryActivity extends AppCompatActivity {
 
 
         connect();
+
+        adapter=new SubCategoryAdapter(SubCategoryActivity.this,mlist,cat_id);
+        layoutManager=new LinearLayoutManager(SubCategoryActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
     private void connect() {
@@ -72,11 +77,7 @@ public class SubCategoryActivity extends AppCompatActivity {
                 CategoryList categorylist=gson.fromJson(response.toString(),CategoryList.class);
                 mlist=categorylist.getSubmlist();
 
-               // Log.i("MyTag","sub cat: "+mlist.get(0).getScid()+mlist.get(0).getScname());
-                adapter=new SubCategoryAdapter(SubCategoryActivity.this,mlist,cat_id);
-                layoutManager=new LinearLayoutManager(SubCategoryActivity.this);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(adapter);
+                adapter.setData(mlist);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -101,10 +102,12 @@ public class SubCategoryActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.menu_order_history:
+                startActivity(new Intent(this,OrderHistoryActivity.class));
                 break;
             case R.id.menu_search:
                 break;
             case R.id.menu_cart:
+                startActivity(new Intent(this, CartActivity.class));
                 break;
             case R.id.menu_profile:
                 startActivity(new Intent(this, ProfileAcitivity.class));

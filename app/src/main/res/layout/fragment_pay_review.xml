@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".fragments.PayReviewFragment">
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:id="@+id/review_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Review Order"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_text1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/review_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:id="@+id/review_coupon_group"
+                android:layout_below="@+id/review_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp">
+                    <EditText
+                        android:id="@+id/review_coupon_edit_text"
+                        android:layout_gravity="top"
+                        android:hint="Coupon"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp" />
+                    <TextView
+                        android:id="@+id/review_coupon_show_not_avail"
+                        android:textColor="@color/red"
+                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp">
+
+                <Button
+                    android:background="@drawable/button2"
+                    android:layout_gravity="top"
+                    android:id="@+id/review_apply_coupon_button"
+                    android:text="Apply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="@android:color/black"
+                        android:id="@+id/review_current_total"
+                        android:textSize="20dp"
+                        android:text="Total"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/red"
+                        android:id="@+id/review_update_total"
+                        android:textSize="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/address_coupon_view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/review_coupon_group"
+                android:background="@color/light_grey" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/address_coupon_view"
+                android:layout_marginTop="20dp"
+                android:text="Name:"
+                android:textSize="18dp" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_name_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_name"
+                android:text="Detail Name"
+                android:textSize="18dp" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_name_box"
+                android:layout_marginTop="20dp"
+                android:text="Shipping Address"
+                android:textSize="18dp" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_shipping_address_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_address"
+                android:text="Detail address"
+                android:textSize="18dp" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_shipping_address_box"
+                android:layout_marginTop="20dp"
+                android:text="Phone:"
+                android:textSize="18dp" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_phone_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_phone"
+                android:text="Detail Phone"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_billing_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_phone_box"
+                android:layout_marginTop="20dp"
+                android:text="Billing Address:"
+                android:textSize="18dp" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/review_text_billing_address_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_billing_address"
+                android:text="Detail Billing Address"
+                android:textSize="18dp" />
+
+            <Button
+                android:background="@drawable/button1"
+                android:paddingHorizontal="10dp"
+                android:id="@+id/review_order_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/review_text_billing_address_box"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Submit Order" />
+
+            <View
+                android:layout_marginTop="5dp"
+                android:id="@+id/address_pay_view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/review_order_button"
+                android:background="@color/light_grey" />
+
+            <TextView
+                android:id="@+id/review_address_pay_cancel_and_continue_shopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/address_pay_view"
+                android:layout_centerHorizontal="true"
+                android:text="Cancel and continue shopping" />
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

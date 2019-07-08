@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".fragments.PayAddressFragment">
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/address_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shipping Address:" />
+
+    <EditText
+        android:id="@+id/address_ship_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_text1"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/address_ship_street_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_ship_name"
+        android:hint="Street address or P.O.Box" />
+
+    <EditText
+        android:id="@+id/address_ship_apt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_ship_street_address"
+        android:hint="Apt, Suite, Unit, Building (optional)" />
+
+    <EditText
+        android:id="@+id/address_ship_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_ship_apt"
+        android:hint="City" />
+
+    <EditText
+        android:id="@+id/address_ship_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_ship_city"
+        android:hint="State/Province/Region" />
+
+    <EditText
+        android:id="@+id/address_ship_ZIP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_ship_state"
+        android:hint="ZIP" />
+
+    <EditText
+        android:id="@+id/address_ship_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_ship_ZIP"
+        android:hint="Phone number" />
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/button1"
+        android:id="@+id/address_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address_ship_phone"
+        android:layout_centerHorizontal="true"
+        android:text="Deliver to this address" />
+
+
+    <View
+        android:layout_marginTop="5dp"
+        android:background="@color/light_grey"
+        android:id="@+id/address_view"
+        android:layout_below="@id/address_button"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+
+    <TextView
+        android:layout_below="@+id/address_view"
+        android:id="@+id/address_cancel_and_continue_shopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Cancel and continue shopping" />
+
+
+</RelativeLayout>

@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 public class ProfileAcitivity extends AppCompatActivity {
 
     ImageView imageView;
-    Button btn_log_out;
+    Button btn_log_out,btn_check_order;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     TextView name;
@@ -31,10 +31,7 @@ public class ProfileAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_acitivity);
 
-        name=findViewById(R.id.profile_name);
-        btn_log_out=findViewById(R.id.profile_button);
-        imageView=findViewById(R.id.profile_icon);
-        Glide.with(this).load("https://1.share.photo.xuite.net/a734010628/1131b5d/4849038/185004239_x.jpg").into(imageView);
+        init();
 
         sharedPreferences=getSharedPreferences("USER",MODE_PRIVATE);
 
@@ -61,6 +58,20 @@ public class ProfileAcitivity extends AppCompatActivity {
         });
     }
 
+    private void init() {
+        name=findViewById(R.id.profile_name);
+        btn_log_out=findViewById(R.id.profile_button);
+        btn_check_order=findViewById(R.id.profile_check_order);
+        imageView=findViewById(R.id.profile_icon);
+        Glide.with(this).load("https://1.share.photo.xuite.net/a734010628/1131b5d/4849038/185004239_x.jpg").circleCrop().into(imageView);
+        btn_check_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileAcitivity.this,OrderHistoryActivity.class));
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
@@ -75,6 +86,7 @@ public class ProfileAcitivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.menu_order_history:
+                startActivity(new Intent(this,OrderHistoryActivity.class));
                 break;
             case R.id.menu_search:
                 break;
